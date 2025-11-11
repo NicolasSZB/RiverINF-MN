@@ -1,32 +1,22 @@
+#include "map.h"
+#include "config.h"
 #include "raylib.h"
 #include <stdlib.h>
+#include <stdio.h>
 
-#define WIDTH 800
-#define HEIGHT 600
-
-#define MAP_WIDTH 20
-#define MAP_HEIGHT 24
-
-#define PLAYER_SPEED 3.0f
-#define PLAYER_WIDTH 20.0f
-#define PLAYER_HEIGHT 20.0f
-
-int main(){
+int main(void){
     char map[MAP_HEIGHT][MAP_WIDTH];
 
     Vector2 playerPosition = {
         (float)WIDTH/2 - PLAYER_WIDTH/2,
-        (float)HEIGHT/2 - PLAYER_HEIGHT/2
+        (float)(HEIGHT - 50) - PLAYER_HEIGHT/2
     };
 
     InitWindow(WIDTH, HEIGHT, "RiverINF");
     SetTargetFPS(60);
 
+    loadMap("levels/first.txt", map);
     while(!WindowShouldClose()){
-        BeginDrawing();
-        ClearBackground(BLACK);
-        DrawRectangleV(playerPosition, (Vector2){PLAYER_WIDTH, PLAYER_HEIGHT}, YELLOW);
-        EndDrawing();
 
             if(IsKeyDown(KEY_W)|| IsKeyDown(KEY_UP))
                 playerPosition.y -= PLAYER_SPEED;
@@ -46,7 +36,13 @@ int main(){
                 playerPosition.y = 0;
             else if(playerPosition.y + PLAYER_HEIGHT > HEIGHT)
                 playerPosition.y = HEIGHT - PLAYER_HEIGHT;
-    }
+
+        BeginDrawing();
+        ClearBackground(LIME);
+        drawMap(map);
+        DrawRectangleV(playerPosition, (Vector2){PLAYER_WIDTH, PLAYER_HEIGHT}, YELLOW);
+        EndDrawing();
+    };
 
     CloseWindow();
     return 0;

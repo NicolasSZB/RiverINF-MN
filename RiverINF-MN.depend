@@ -1,0 +1,28 @@
+# depslib dependency file v1.0
+1762721029 source:d:\riverinf-mn\src\bullet.c
+
+1762724175 source:d:\riverinf-mn\src\entities.c
+
+1762720983 source:d:\riverinf-mn\src\game.c
+
+1762724175 source:d:\riverinf-mn\src\player.c
+
+1762721036 source:d:\riverinf-mn\src\scoring.c
+
+1762889424 source:d:\riverinf-mn\src\main.c
+	"map.h"
+	"config.h"
+	"raylib.h"
+	<stdlib.h>
+	<stdio.h>
+
+1762886566 d:\riverinf-mn\src\map.h
+	"config.h"
+
+1762889744 d:\riverinf-mn\src\config.h
+
+1762889097 source:d:\riverinf-mn\src\map.c
+	"map.h"
+	"raylib.h"
+	<stdio.h>
+
