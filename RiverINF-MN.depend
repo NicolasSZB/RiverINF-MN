@@ -1,28 +1,37 @@
 # depslib dependency file v1.0
-1762890172 source:d:\riverinf-mn\src\bullet.c
+1762890628 source:d:\riverinf-mn\src\bullet.c
 
-1762890172 source:d:\riverinf-mn\src\entities.c
+1762890628 source:d:\riverinf-mn\src\entities.c
 
-1762890172 source:d:\riverinf-mn\src\game.c
+1762890628 source:d:\riverinf-mn\src\game.c
 
-1762890172 source:d:\riverinf-mn\src\player.c
+1762901640 source:d:\riverinf-mn\src\player.c
+	"raylib.h"
+	"player.h"
+	"config.h"
+	<stdlib.h>
+	<stdio.h>
 
-1762890172 source:d:\riverinf-mn\src\scoring.c
+1762890628 source:d:\riverinf-mn\src\scoring.c
 
-1762890172 source:d:\riverinf-mn\src\main.c
+1762901680 source:d:\riverinf-mn\src\main.c
 	"map.h"
 	"config.h"
+	"player.h"
 	"raylib.h"
 	<stdlib.h>
 	<stdio.h>
 
-1762890172 d:\riverinf-mn\src\map.h
+1762890628 d:\riverinf-mn\src\map.h
 	"config.h"
 
-1762890172 d:\riverinf-mn\src\config.h
+1762890628 d:\riverinf-mn\src\config.h
 
-1762890172 source:d:\riverinf-mn\src\map.c
+1762890628 source:d:\riverinf-mn\src\map.c
 	"map.h"
 	"raylib.h"
 	<stdio.h>
+
+1762901495 d:\riverinf-mn\src\player.h
+	"raylib.h"
 
