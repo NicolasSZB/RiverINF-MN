@@ -31,9 +31,35 @@
 		<Compiler>
 			<Add option="-Wall" />
 		</Compiler>
-		<Unit filename="main.c">
+		<Unit filename="levels/first.txt" />
+		<Unit filename="src/bullet.c">
 			<Option compilerVar="CC" />
 		</Unit>
+		<Unit filename="src/bullet.h" />
+		<Unit filename="src/config.h" />
+		<Unit filename="src/entities.c">
+			<Option compilerVar="CC" />
+		</Unit>
+		<Unit filename="src/entities.h" />
+		<Unit filename="src/game.c">
+			<Option compilerVar="CC" />
+		</Unit>
+		<Unit filename="src/game.h" />
+		<Unit filename="src/main.c">
+			<Option compilerVar="CC" />
+		</Unit>
+		<Unit filename="src/map.c">
+			<Option compilerVar="CC" />
+		</Unit>
+		<Unit filename="src/map.h" />
+		<Unit filename="src/player.c">
+			<Option compilerVar="CC" />
+		</Unit>
+		<Unit filename="src/player.h" />
+		<Unit filename="src/scoring.c">
+			<Option compilerVar="CC" />
+		</Unit>
+		<Unit filename="src/scoring.h" />
 		<Extensions>
 			<lib_finder disable_auto="1" />
 		</Extensions>
