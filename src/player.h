@@ -2,6 +2,7 @@
 #define PLAYER_H
 
 #include "raylib.h"
+#include <stdbool.h>
 
 typedef struct player{
     Vector2 position;
@@ -11,7 +12,8 @@ typedef struct player{
 } PLAYER;
 
 void initPlayer(PLAYER* player);
-void updatePlayer(PLAYER* player);
+bool updatePlayer(PLAYER* player, const char map[MAP_HEIGHT][MAP_WIDTH]);
 void drawPlayer(PLAYER player);
+void resetPlayerPosition(PLAYER* player);
 
 #endif // PLAYER_H

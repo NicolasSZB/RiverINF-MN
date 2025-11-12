@@ -5,22 +5,24 @@
 
 1762890628 source:d:\riverinf-mn\src\game.c
 
-1762901640 source:d:\riverinf-mn\src\player.c
+1762989846 source:d:\riverinf-mn\src\player.c
 	"raylib.h"
 	"player.h"
 	"config.h"
 	<stdlib.h>
 	<stdio.h>
+	<stdbool.h>
 
 1762890628 source:d:\riverinf-mn\src\scoring.c
 
-1762901680 source:d:\riverinf-mn\src\main.c
+1762990021 source:d:\riverinf-mn\src\main.c
 	"map.h"
 	"config.h"
 	"player.h"
 	"raylib.h"
 	<stdlib.h>
 	<stdio.h>
+	<stdbool.h>
 
 1762890628 d:\riverinf-mn\src\map.h
 	"config.h"
@@ -32,6 +34,7 @@
 	"raylib.h"
 	<stdio.h>
 
-1762901495 d:\riverinf-mn\src\player.h
+1762989699 d:\riverinf-mn\src\player.h
 	"raylib.h"
+	<stdbool.h>
 
