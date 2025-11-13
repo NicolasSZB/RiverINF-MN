@@ -2,6 +2,7 @@
 #define PLAYER_H
 
 #include "raylib.h"
+#include "config.h"
 #include <stdbool.h>
 
 typedef struct player{
@@ -11,9 +12,9 @@ typedef struct player{
     int score;
 } PLAYER;
 
-void initPlayer(PLAYER* player);
+void initPlayer(PLAYER* player, char map[MAP_HEIGHT][MAP_WIDTH]);
 bool updatePlayer(PLAYER* player, const char map[MAP_HEIGHT][MAP_WIDTH]);
 void drawPlayer(PLAYER player);
-void resetPlayerPosition(PLAYER* player);
+void resetPlayerPosition(PLAYER* player, char map[MAP_HEIGHT][MAP_WIDTH]);
 
 #endif // PLAYER_H

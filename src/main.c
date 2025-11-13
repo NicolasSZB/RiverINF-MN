@@ -2,6 +2,7 @@
 #include "config.h"
 #include "player.h"
 #include "raylib.h"
+#include "game.h"
 
 #include <stdlib.h>
 #include <stdio.h>
@@ -13,26 +14,53 @@ int main(void){
     char mapFilename[50];
 
     PLAYER myPlayer;
-    initPlayer(&myPlayer);
+    GAMESTATE currentState = STATE_GAMEPLAY;
 
     InitWindow(WIDTH, HEIGHT, "RiverINF");
     SetTargetFPS(60);
 
-    sprintf(mapFilename, "levels/fase%d.txt", currentLevel);
-    loadMap(mapFilename, map);
+    loadLevel(currentLevel, mapFilename, map);
+    initPlayer(&myPlayer, map);
     while(!WindowShouldClose()){
-        bool levelComplete = updatePlayer(&myPlayer);
-        if(levelComplete){
-            currentLevel++;
-            sprintf(mapFilename, "levels/fase%d.txt", currentLevel);
-            loadMap(mapFilename, map);
-            resetPlayerPosition(&myPlayer);
+
+        switch(currentState){
+            case STATE_GAMEPLAY:
+                bool levelComplete = updatePlayer(&myPlayer, map);
+                if(levelComplete){
+                    currentLevel++;
+                    loadLevel(currentLevel, mapFilename, map);
+                    resetPlayerPosition(&myPlayer, map);
+                }
+                if(myPlayer.life <= 0)
+                    currentState = STATE_GAMEOVER;
+                break;
+            case STATE_GAMEOVER:
+                if(IsKeyPressed(KEY_ENTER)){
+                    currentLevel = 1;
+                    loadLevel(currentLevel, mapFilename, map);
+                    initPlayer(&myPlayer, map);
+                    currentState = STATE_GAMEPLAY;
+                }
+                break;
         }
 
         BeginDrawing();
         ClearBackground(LIME);
-        drawMap(map);
-        drawPlayer(myPlayer);
+
+        switch(currentState){
+            case STATE_GAMEPLAY:
+                drawMap(map);
+                drawPlayer(myPlayer);
+                break;
+            case STATE_GAMEOVER:
+                DrawText("GAME OVER",
+                         WIDTH/2 - MeasureText("GAME OVER", 40) / 2,
+                         HEIGHT/2 - 40, 40, YELLOW);
+                DrawText("Pressione ENTER para reiniciar",
+                         WIDTH/2 - MeasureText("Pressione ENTER para reiniciar", 20) / 2,
+                         HEIGHT/2 + 20, 20, YELLOW);
+                break;
+        }
         EndDrawing();
     };
 
