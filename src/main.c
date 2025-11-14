@@ -2,6 +2,7 @@
 #include "config.h"
 #include "player.h"
 #include "raylib.h"
+#include "entities.h"
 #include "game.h"
 
 #include <stdlib.h>
@@ -51,6 +52,7 @@ int main(void){
             case STATE_GAMEPLAY:
                 drawMap(map);
                 drawPlayer(myPlayer);
+                drawEntities();
                 break;
             case STATE_GAMEOVER:
                 DrawText("GAME OVER",

@@ -1,6 +1,7 @@
 #include "raylib.h"
 #include "player.h"
 #include "config.h"
+#include "entities.h"
 
 #include <stdlib.h>
 #include <stdio.h>
@@ -14,7 +15,7 @@ void initPlayer(PLAYER* player, char map[MAP_HEIGHT][MAP_WIDTH]){
     resetPlayerPosition(player, map);
 }
 
-bool updatePlayer(PLAYER* player, const char map[MAP_HEIGHT][MAP_WIDTH]){
+bool updatePlayer(PLAYER* player, char map[MAP_HEIGHT][MAP_WIDTH]){
     bool reachedTop = false;
     if(IsKeyDown(KEY_A) || IsKeyDown(KEY_LEFT))
         player->position.x -= PLAYER_SPEED;
@@ -23,17 +24,38 @@ bool updatePlayer(PLAYER* player, const char map[MAP_HEIGHT][MAP_WIDTH]){
 
     player->position.y -= PLAYER_SPEED;
 
-    int centerX = player->position.x + (PLAYER_WIDTH/2);
-    int centerY = player->position.y + (PLAYER_HEIGHT/2);
+    int topLeftRow = player->position.y / TILE_SIZE;
+    int topLeftCol = player->position.x / TILE_SIZE;
 
-    int playerGridCol = centerX / TILE_SIZE;
-    int playerGridRow = centerY / TILE_SIZE;
+    int topRightRow = player->position.y / TILE_SIZE;
+    int topRightCol = (player->position.x + PLAYER_WIDTH) / TILE_SIZE;
 
-    char tile = map[playerGridRow][playerGridCol];
+    int bottomLeftRow = (player->position.y + PLAYER_HEIGHT) / TILE_SIZE;
+    int bottomLeftCol = player->position.x / TILE_SIZE;
 
-    if(tile == 'T'){
+    int bottomRightRow = (player->position.y  + PLAYER_HEIGHT) / TILE_SIZE;
+    int bottomRightCol = (player->position.x + PLAYER_WIDTH) / TILE_SIZE;
+
+    if(
+       map[topLeftRow][topLeftCol] == 'T' ||
+       map[topRightRow][topRightCol] == 'T' ||
+       map[bottomLeftRow][bottomLeftCol] == 'T' ||
+       map[bottomRightRow][bottomRightCol] == 'T'
+       ){
         player->life--;
         resetPlayerPosition(player, map);
+       }
+
+    ENTITYTYPE collisionType = checkPlayerCollision(player->position);
+
+    if(collisionType == ENTITY_HELI || collisionType == ENTITY_SHIP){
+        player->life--;
+        resetPlayerPosition(player, map);
+    }
+    else if(collisionType == ENTITY_FUEL){
+        player->fuel += 30;
+        if(player-> fuel > 100)
+            player->fuel = 100;
     }
 
     if(player->position.y <= 0)

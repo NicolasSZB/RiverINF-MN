@@ -13,7 +13,7 @@ typedef struct player{
 } PLAYER;
 
 void initPlayer(PLAYER* player, char map[MAP_HEIGHT][MAP_WIDTH]);
-bool updatePlayer(PLAYER* player, const char map[MAP_HEIGHT][MAP_WIDTH]);
+bool updatePlayer(PLAYER* player, char map[MAP_HEIGHT][MAP_WIDTH]);
 void drawPlayer(PLAYER player);
 void resetPlayerPosition(PLAYER* player, char map[MAP_HEIGHT][MAP_WIDTH]);
 
