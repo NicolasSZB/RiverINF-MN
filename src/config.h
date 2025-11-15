@@ -13,4 +13,8 @@
 #define PLAYER_WIDTH 20.0f
 #define PLAYER_HEIGHT 20.0f
 
+#define MAX_ENTITIES 100
+
+#define BULLET_SPEED 8.0f
+
 #endif // CONFIG_H_

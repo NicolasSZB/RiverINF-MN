@@ -2,6 +2,7 @@
 #include "player.h"
 #include "config.h"
 #include "entities.h"
+#include "bullet.h"
 
 #include <stdlib.h>
 #include <stdio.h>
@@ -21,6 +22,8 @@ bool updatePlayer(PLAYER* player, char map[MAP_HEIGHT][MAP_WIDTH]){
         player->position.x -= PLAYER_SPEED;
     if(IsKeyDown(KEY_D) || IsKeyDown(KEY_RIGHT))
         player->position.x += PLAYER_SPEED;
+    if(IsKeyPressed(KEY_K) || IsKeyPressed(KEY_SPACE))
+        spawnBullet(player->position);
 
     player->position.y -= PLAYER_SPEED;
 
@@ -56,6 +59,12 @@ bool updatePlayer(PLAYER* player, char map[MAP_HEIGHT][MAP_WIDTH]){
         player->fuel += 30;
         if(player-> fuel > 100)
             player->fuel = 100;
+    }
+
+    if(player->fuel <= 0){
+        player->life--;
+        resetPlayerPosition(player, map);
+        player->fuel = 100;
     }
 
     if(player->position.y <= 0)

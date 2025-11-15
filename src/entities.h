@@ -17,8 +17,6 @@ typedef struct {
     bool active;
 } ENTITY;
 
-#define MAX_ENTITIES 100
-
 void initEntities(void);
 
 void loadEntitiesFromMap(const char map[MAP_HEIGHT][MAP_WIDTH]);

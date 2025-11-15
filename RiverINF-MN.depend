@@ -1,5 +1,7 @@
 # depslib dependency file v1.0
-1762890628 source:d:\riverinf-mn\src\bullet.c
+1763249016 source:d:\riverinf-mn\src\bullet.c
+	"bullet.h"
+	"config.h"
 
 1763155178 source:d:\riverinf-mn\src\entities.c
 	"raylib.h"
@@ -13,24 +15,26 @@
 	"game.h"
 	"entities.h"
 
-1763154997 source:d:\riverinf-mn\src\player.c
+1763249042 source:d:\riverinf-mn\src\player.c
 	"raylib.h"
 	"player.h"
 	"config.h"
 	"entities.h"
+	"bullet.h"
 	<stdlib.h>
 	<stdio.h>
 	<stdbool.h>
 
 1762890628 source:d:\riverinf-mn\src\scoring.c
 
-1763150295 source:d:\riverinf-mn\src\main.c
+1763249084 source:d:\riverinf-mn\src\main.c
 	"map.h"
 	"config.h"
 	"player.h"
 	"raylib.h"
 	"entities.h"
 	"game.h"
+	"bullet.h"
 	<stdlib.h>
 	<stdio.h>
 	<stdbool.h>
@@ -38,7 +42,7 @@
 1762890628 d:\riverinf-mn\src\map.h
 	"config.h"
 
-1762993869 d:\riverinf-mn\src\config.h
+1763248427 d:\riverinf-mn\src\config.h
 
 1762890628 source:d:\riverinf-mn\src\map.c
 	"map.h"
@@ -53,7 +57,11 @@
 1762996341 d:\riverinf-mn\src\game.h
 	"config.h"
 
-1763150407 d:\riverinf-mn\src\entities.h
+1763248431 d:\riverinf-mn\src\entities.h
 	"raylib.h"
 	"config.h"
+
+1763249027 d:\riverinf-mn\src\bullet.h
+	"raylib.h"
+	<stdbool.h>
 

@@ -4,6 +4,7 @@
 #include "raylib.h"
 #include "entities.h"
 #include "game.h"
+#include "bullet.h"
 
 #include <stdlib.h>
 #include <stdio.h>
@@ -18,15 +19,17 @@ int main(void){
     GAMESTATE currentState = STATE_GAMEPLAY;
 
     InitWindow(WIDTH, HEIGHT, "RiverINF");
-    SetTargetFPS(60);
-
     loadLevel(currentLevel, mapFilename, map);
     initPlayer(&myPlayer, map);
+    initBullets();
+    SetTargetFPS(60);
+
     while(!WindowShouldClose()){
 
         switch(currentState){
             case STATE_GAMEPLAY:
                 bool levelComplete = updatePlayer(&myPlayer, map);
+                updateBullets();
                 if(levelComplete){
                     currentLevel++;
                     loadLevel(currentLevel, mapFilename, map);
@@ -52,6 +55,7 @@ int main(void){
             case STATE_GAMEPLAY:
                 drawMap(map);
                 drawPlayer(myPlayer);
+                drawBullets();
                 drawEntities();
                 break;
             case STATE_GAMEOVER:
