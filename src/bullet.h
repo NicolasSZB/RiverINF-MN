@@ -15,7 +15,7 @@ void initBullets(void);
 
 void spawnBullet(Vector2 startPosition);
 
-void updateBullets(void);
+int updateBullets(void);
 
 void drawBullets(void);
 

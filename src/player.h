@@ -7,7 +7,7 @@
 
 typedef struct player{
     Vector2 position;
-    int fuel;
+    float fuel;
     int life;
     int score;
 } PLAYER;

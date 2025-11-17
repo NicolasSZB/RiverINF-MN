@@ -111,3 +111,33 @@ ENTITYTYPE checkPlayerCollision(Vector2 playerPosition){
 
     return ENTITY_NONE;
 }
+
+int checkBulletCollision(Vector2 bulletPosition){
+    Rectangle bulletRect = {bulletPosition.x, bulletPosition.y, 4, 10};
+
+    for(int i = 0; i < MAX_ENTITIES; i++){
+        if(!entities[i].active)
+           continue;
+
+        ENTITY* e = &entities[i];
+
+        if(e->type == ENTITY_HELI || e->type == ENTITY_SHIP){
+            Rectangle entityRect = {
+                e->position.x,
+                e->position.y,
+                PLAYER_WIDTH,
+                PLAYER_HEIGHT
+            };
+
+            if(CheckCollisionRecs(bulletRect, entityRect)){
+                e->active = false;
+
+                if(e->type == ENTITY_HELI)
+                    return 60;
+                else if(e->type == ENTITY_SHIP)
+                    return 30;
+            }
+        }
+    }
+    return 0;
+}

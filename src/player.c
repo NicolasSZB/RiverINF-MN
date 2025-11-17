@@ -61,6 +61,8 @@ bool updatePlayer(PLAYER* player, char map[MAP_HEIGHT][MAP_WIDTH]){
             player->fuel = 100;
     }
 
+    player->fuel -= 0.1f;
+
     if(player->fuel <= 0){
         player->life--;
         resetPlayerPosition(player, map);

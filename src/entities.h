@@ -27,4 +27,6 @@ void drawEntities(void);
 
 ENTITYTYPE checkPlayerCollision(Vector2 playerPosition);
 
+int checkBulletCollision(Vector2 bulletPosition);
+
 #endif // ENTITIES_H_

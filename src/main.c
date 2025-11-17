@@ -5,6 +5,7 @@
 #include "entities.h"
 #include "game.h"
 #include "bullet.h"
+#include "hud.h"
 
 #include <stdlib.h>
 #include <stdio.h>
@@ -29,11 +30,20 @@ int main(void){
         switch(currentState){
             case STATE_GAMEPLAY:
                 bool levelComplete = updatePlayer(&myPlayer, map);
-                updateBullets();
                 if(levelComplete){
                     currentLevel++;
                     loadLevel(currentLevel, mapFilename, map);
                     resetPlayerPosition(&myPlayer, map);
+                }
+                int scoreBullets = updateBullets();
+                if(scoreBullets > 0){
+                    myPlayer.score += scoreBullets;
+
+                    int oldScore = myPlayer.score - scoreBullets;
+                    int newScore = myPlayer.score;
+
+                    if((oldScore / 1000) < (newScore/1000))
+                       myPlayer.life++;
                 }
                 if(myPlayer.life <= 0)
                     currentState = STATE_GAMEOVER;
@@ -57,6 +67,7 @@ int main(void){
                 drawPlayer(myPlayer);
                 drawBullets();
                 drawEntities();
+                drawHud(myPlayer, currentLevel);
                 break;
             case STATE_GAMEOVER:
                 DrawText("GAME OVER",
