@@ -3,11 +3,13 @@
 #include "config.h"
 #include "entities.h"
 #include "bullet.h"
+#include "sprite.h"
 
 #include <stdlib.h>
 #include <stdio.h>
 #include <stdbool.h>
 
+extern SpriteSheet gameSprites;
 
 void initPlayer(PLAYER* player, char map[MAP_HEIGHT][MAP_WIDTH]){
     player->fuel = 100;
@@ -18,10 +20,21 @@ void initPlayer(PLAYER* player, char map[MAP_HEIGHT][MAP_WIDTH]){
 
 bool updatePlayer(PLAYER* player, char map[MAP_HEIGHT][MAP_WIDTH]){
     bool reachedTop = false;
-    if(IsKeyDown(KEY_A) || IsKeyDown(KEY_LEFT))
+    bool horizontal_movement;
+
+    if(IsKeyDown(KEY_A) || IsKeyDown(KEY_LEFT)){
         player->position.x -= PLAYER_SPEED;
-    if(IsKeyDown(KEY_D) || IsKeyDown(KEY_RIGHT))
+        player->currentSprite = gameSprites.jogador_aviao_esquerda;
+        horizontal_movement = true;
+    }
+    if(IsKeyDown(KEY_D) || IsKeyDown(KEY_RIGHT)){
         player->position.x += PLAYER_SPEED;
+        player->currentSprite = gameSprites.jogador_aviao_direita;
+        horizontal_movement = true;
+    }
+    if(!horizontal_movement){
+        player->currentSprite = gameSprites.jogador_aviao_reto;
+    }
     if(IsKeyPressed(KEY_K) || IsKeyPressed(KEY_SPACE))
         spawnBullet(player->position);
 
@@ -74,10 +87,8 @@ bool updatePlayer(PLAYER* player, char map[MAP_HEIGHT][MAP_WIDTH]){
     return reachedTop;
 }
 
-void drawPlayer(PLAYER player){
-    DrawRectangleV(player.position,
-                   (Vector2){PLAYER_WIDTH, PLAYER_HEIGHT},
-                   YELLOW);
+void drawPlayer(PLAYER player,SpriteSheet*sheet){
+    drawing_sprite(sheet,player.currentSprite,player.position.x,player.position.y);
 }
 
 void resetPlayerPosition(PLAYER* player, char map[MAP_HEIGHT][MAP_WIDTH]){

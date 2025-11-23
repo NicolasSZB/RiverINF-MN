@@ -1,6 +1,6 @@
 #ifndef ENTITIES_H_
 #define ENTITIES_H_
-
+#include "sprite.h"
 #include "raylib.h"
 #include "config.h"
 
@@ -23,7 +23,7 @@ void loadEntitiesFromMap(const char map[MAP_HEIGHT][MAP_WIDTH]);
 
 void updateEntities(void);
 
-void drawEntities(void);
+void drawEntities(SpriteSheet*sheet);
 
 ENTITYTYPE checkPlayerCollision(Vector2 playerPosition);
 

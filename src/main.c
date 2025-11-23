@@ -6,20 +6,23 @@
 #include "game.h"
 #include "bullet.h"
 #include "hud.h"
+#include "sprite.h"
 
 #include <stdlib.h>
 #include <stdio.h>
 #include <stdbool.h>
 
+SpriteSheet gameSprites;
 int main(void){
     char map[MAP_HEIGHT][MAP_WIDTH];
     int currentLevel = 1;
     char mapFilename[50];
-
     PLAYER myPlayer;
     GAMESTATE currentState = STATE_GAMEPLAY;
 
     InitWindow(WIDTH, HEIGHT, "RiverINF");
+    gameSprites = Carregarsprites();
+
     loadLevel(currentLevel, mapFilename, map);
     initPlayer(&myPlayer, map);
     initBullets();
@@ -64,9 +67,9 @@ int main(void){
         switch(currentState){
             case STATE_GAMEPLAY:
                 drawMap(map);
-                drawPlayer(myPlayer);
+                drawPlayer(myPlayer, &gameSprites);
                 drawBullets();
-                drawEntities();
+                drawEntities(&gameSprites);
                 drawHud(myPlayer, currentLevel);
                 break;
             case STATE_GAMEOVER:
@@ -77,10 +80,12 @@ int main(void){
                          WIDTH/2 - MeasureText("Pressione ENTER para reiniciar", 20) / 2,
                          HEIGHT/2 + 20, 20, YELLOW);
                 break;
+            default:
+                break;
         }
         EndDrawing();
     };
-
+    unload_sprite(&gameSprites);
     CloseWindow();
     return 0;
 }

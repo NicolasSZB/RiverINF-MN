@@ -74,3 +74,93 @@
 	"raylib.h"
 	"hud.h"
 
+1763848907 source:c:\users\mathe\onedrive\햞ea de trabalho\merge_main_sprites\riverinf-mn\src\bullet.c
+	"bullet.h"
+	"config.h"
+	"entities.h"
+
+1763848907 c:\users\mathe\onedrive\햞ea de trabalho\merge_main_sprites\riverinf-mn\src\bullet.h
+	"raylib.h"
+	<stdbool.h>
+
+1763850395 c:\users\mathe\onedrive\햞ea de trabalho\merge_main_sprites\riverinf-mn\src\config.h
+
+1763849800 c:\users\mathe\onedrive\햞ea de trabalho\merge_main_sprites\riverinf-mn\src\entities.h
+	"sprite.h"
+	"raylib.h"
+	"config.h"
+
+1763854876 c:\users\mathe\onedrive\햞ea de trabalho\merge_main_sprites\riverinf-mn\src\sprite.h
+	"raylib.h"
+	"config.h"
+
+1763854936 source:c:\users\mathe\onedrive\햞ea de trabalho\merge_main_sprites\riverinf-mn\src\entities.c
+	"raylib.h"
+	"entities.h"
+	"sprite.h"
+	<stdlib.h>
+
+1763848907 source:c:\users\mathe\onedrive\햞ea de trabalho\merge_main_sprites\riverinf-mn\src\game.c
+	<stdio.h>
+	"config.h"
+	"map.h"
+	"game.h"
+	"entities.h"
+
+1763848907 c:\users\mathe\onedrive\햞ea de trabalho\merge_main_sprites\riverinf-mn\src\map.h
+	"config.h"
+
+1763848907 c:\users\mathe\onedrive\햞ea de trabalho\merge_main_sprites\riverinf-mn\src\game.h
+	"config.h"
+
+1763848907 source:c:\users\mathe\onedrive\햞ea de trabalho\merge_main_sprites\riverinf-mn\src\map.c
+	"map.h"
+	"raylib.h"
+	<stdio.h>
+
+1763856658 source:c:\users\mathe\onedrive\햞ea de trabalho\merge_main_sprites\riverinf-mn\src\player.c
+	"raylib.h"
+	"player.h"
+	"config.h"
+	"entities.h"
+	"bullet.h"
+	"sprite.h"
+	<stdlib.h>
+	<stdio.h>
+	<stdbool.h>
+
+1763855054 c:\users\mathe\onedrive\햞ea de trabalho\merge_main_sprites\riverinf-mn\src\player.h
+	"sprite.h"
+	"raylib.h"
+	"config.h"
+	<stdbool.h>
+
+1763848907 source:c:\users\mathe\onedrive\햞ea de trabalho\merge_main_sprites\riverinf-mn\src\scoring.c
+
+1763856784 source:c:\users\mathe\onedrive\햞ea de trabalho\merge_main_sprites\riverinf-mn\src\main.c
+	"map.h"
+	"config.h"
+	"player.h"
+	"raylib.h"
+	"entities.h"
+	"game.h"
+	"bullet.h"
+	"hud.h"
+	"sprite.h"
+	<stdlib.h>
+	<stdio.h>
+	<stdbool.h>
+
+1763848907 c:\users\mathe\onedrive\햞ea de trabalho\merge_main_sprites\riverinf-mn\src\hud.h
+	"player.h"
+
+1763848907 source:c:\users\mathe\onedrive\햞ea de trabalho\merge_main_sprites\riverinf-mn\src\hud.c
+	"raylib.h"
+	"hud.h"
+
+1763856057 source:c:\users\mathe\onedrive\햞ea de trabalho\merge_main_sprites\riverinf-mn\src\sprites.c
+	"raylib.h"
+	"sprite.h"
+	<stdlib.h>
+	<stdio.h>
+

@@ -1,6 +1,6 @@
 #include "raylib.h"
 #include "entities.h"
-
+#include "sprite.h"
 #include <stdlib.h>
 
 static ENTITY entities[MAX_ENTITIES];
@@ -48,32 +48,37 @@ void loadEntitiesFromMap(const char map[MAP_HEIGHT][MAP_WIDTH]){
     }
 }
 
-void drawEntities(void){
+void drawEntities(SpriteSheet *sheet){
     for(int i = 0; i < MAX_ENTITIES; i++){
         if(!entities[i].active)
             continue;
 
         ENTITY e = entities[i];
+        Rectangle spriteRec; // Variavel recorte sa ser usado
 
         switch (e.type){
             case ENTITY_HELI:
-                DrawRectangleV(e.position,
-                                (Vector2){PLAYER_WIDTH, PLAYER_HEIGHT},
-                                RED);
+                spriteRec = sheet->helicoptero;
+               // DrawRectangleV(e.position,
+                            //(Vector2){PLAYER_WIDTH, PLAYER_HEIGHT},
+                              //  RED);
                 break;
             case ENTITY_SHIP:
-                DrawRectangleV(e.position,
-                                (Vector2){PLAYER_WIDTH, PLAYER_HEIGHT},
-                                GRAY);
+                spriteRec = sheet->lancha;
+                //DrawRectangleV(e.position,
+                      //          (Vector2){PLAYER_WIDTH, PLAYER_HEIGHT},
+                        //        GRAY);
                 break;
             case ENTITY_FUEL:
-                DrawRectangleV(e.position,
-                                (Vector2){PLAYER_WIDTH, PLAYER_HEIGHT},
-                                WHITE);
+                spriteRec = sheet->fuel;
+                //DrawRectangleV(e.position,
+                  //              (Vector2){PLAYER_WIDTH, PLAYER_HEIGHT},
+                    //            WHITE);
                 break;
             default:
-                break;
+                continue;
         }
+        drawing_sprite(sheet,spriteRec,e.position.x,e.position.y);
     }
 }
 
