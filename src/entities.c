@@ -49,14 +49,27 @@ void loadEntitiesFromMap(const char map[MAP_HEIGHT][MAP_WIDTH]){
 }
 
 void drawEntities(SpriteSheet *sheet){
+    float timer = GetFrameTime();
     for(int i = 0; i < MAX_ENTITIES; i++){
         if(!entities[i].active)
             continue;
 
-        ENTITY e = entities[i];
+        float scale =ENTITYSCALE;
+
+        ENTITY *e = &entities[i];
         Rectangle spriteRec; // Variavel recorte sa ser usado
 
-        switch (e.type){
+
+        if(e->type == ENTITY_EXPLOSION){
+            e->timer -= timer;
+
+            if(e->timer <= 0.0f){
+                e->type == ENTITY_NONE;
+                e->active = false;
+                continue;
+            }
+        }
+        switch (e->type){
             case ENTITY_HELI:
                 spriteRec = sheet->helicoptero;
                // DrawRectangleV(e.position,
@@ -65,20 +78,27 @@ void drawEntities(SpriteSheet *sheet){
                 break;
             case ENTITY_SHIP:
                 spriteRec = sheet->lancha;
-                //DrawRectangleV(e.position,
-                      //          (Vector2){PLAYER_WIDTH, PLAYER_HEIGHT},
-                        //        GRAY);
+                scale = 1.0f;
+
                 break;
             case ENTITY_FUEL:
                 spriteRec = sheet->fuel;
+                scale = 0.6;
                 //DrawRectangleV(e.position,
                   //              (Vector2){PLAYER_WIDTH, PLAYER_HEIGHT},
                     //            WHITE);
                 break;
+            case ENTITY_EXPLOSION:
+                spriteRec = sheet->explosao_amarela;
+                break;
             default:
                 continue;
         }
-        drawing_sprite(sheet,spriteRec,e.position.x,e.position.y);
+        drawing_sprite(sheet,
+                       spriteRec,
+                       e->position.x,
+                       e->position.y,
+                       scale);
     }
 }
 
@@ -96,11 +116,27 @@ ENTITYTYPE checkPlayerCollision(Vector2 playerPosition){
 
         ENTITY* e = &entities[i];
 
+        Rectangle original;
+        switch(e->type){
+        case ENTITY_HELI:
+            original = gameSprites.helicoptero;
+            break;
+        case ENTITY_SHIP:
+            original = gameSprites.lancha;
+            break;
+        case ENTITY_FUEL:
+            original = gameSprites.fuel;
+            break;
+        default:
+            continue;
+        }
+
         Rectangle entityRect = {
             e->position.x,
             e->position.y,
-            PLAYER_WIDTH,
-            PLAYER_HEIGHT
+            original.width*0.6,
+            original.height*0.6
+
         };
 
         if(CheckCollisionRecs(playerRect, entityRect)){
@@ -119,7 +155,7 @@ ENTITYTYPE checkPlayerCollision(Vector2 playerPosition){
 
 int checkBulletCollision(Vector2 bulletPosition){
     Rectangle bulletRect = {bulletPosition.x, bulletPosition.y, 4, 10};
-
+    Rectangle original;
     for(int i = 0; i < MAX_ENTITIES; i++){
         if(!entities[i].active)
            continue;
@@ -127,20 +163,34 @@ int checkBulletCollision(Vector2 bulletPosition){
         ENTITY* e = &entities[i];
 
         if(e->type == ENTITY_HELI || e->type == ENTITY_SHIP){
+                if (e->type == ENTITY_HELI) {
+                original=  gameSprites.helicoptero;
+            } else { // ENTITY_SHIP
+                original= gameSprites.lancha;
+            }
             Rectangle entityRect = {
                 e->position.x,
                 e->position.y,
-                PLAYER_WIDTH,
-                PLAYER_HEIGHT
+                original.width*0.6,//ENTITYSCALE,//antigo player width e height
+                original.height*0.6//ENTITYSCALE
             };
 
             if(CheckCollisionRecs(bulletRect, entityRect)){
-                e->active = false;
+               // e->active = false;
 
-                if(e->type == ENTITY_HELI)
-                    return 60;
-                else if(e->type == ENTITY_SHIP)
-                    return 30;
+                if(e->type == ENTITY_HELI){
+                        e->type = ENTITY_EXPLOSION;
+                        e->timer= 0.3f;
+
+                        return 60;
+                }
+
+                else if(e->type == ENTITY_SHIP){
+                        e->type = ENTITY_EXPLOSION;
+                        e->timer= 0.3f;
+
+                        return 30;
+                }
             }
         }
     }

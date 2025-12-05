@@ -31,7 +31,11 @@
 		<Compiler>
 			<Add option="-Wall" />
 		</Compiler>
-		<Unit filename="levels/first.txt" />
+		<Unit filename="../../sprites.png" />
+		<Unit filename="levels/fase 4.txt" />
+		<Unit filename="levels/fase1.txt" />
+		<Unit filename="levels/fase2.txt" />
+		<Unit filename="levels/fase3.txt" />
 		<Unit filename="src/bullet.c">
 			<Option compilerVar="CC" />
 		</Unit>
@@ -45,6 +49,10 @@
 			<Option compilerVar="CC" />
 		</Unit>
 		<Unit filename="src/game.h" />
+		<Unit filename="src/hud.c">
+			<Option compilerVar="CC" />
+		</Unit>
+		<Unit filename="src/hud.h" />
 		<Unit filename="src/main.c">
 			<Option compilerVar="CC" />
 		</Unit>
@@ -60,6 +68,10 @@
 			<Option compilerVar="CC" />
 		</Unit>
 		<Unit filename="src/scoring.h" />
+		<Unit filename="src/sprite.h" />
+		<Unit filename="src/sprites.c">
+			<Option compilerVar="CC" />
+		</Unit>
 		<Extensions>
 			<lib_finder disable_auto="1" />
 		</Extensions>

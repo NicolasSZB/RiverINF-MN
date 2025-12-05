@@ -6,7 +6,9 @@
 typedef enum{
     STATE_MAINMENU,
     STATE_GAMEPLAY,
-    STATE_GAMEOVER
+    STATE_GAMEOVER,
+    STATE_OPTIONS,
+    STATE_RANKINGS
 } GAMESTATE;
 
 void loadLevel(int currentLevel, char* filename, char map[MAP_HEIGHT][MAP_WIDTH]);

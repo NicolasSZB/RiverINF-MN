@@ -83,18 +83,18 @@
 	"raylib.h"
 	<stdbool.h>
 
-1763850395 c:\users\mathe\onedrive\햞ea de trabalho\merge_main_sprites\riverinf-mn\src\config.h
+1764287789 c:\users\mathe\onedrive\햞ea de trabalho\merge_main_sprites\riverinf-mn\src\config.h
 
-1763849800 c:\users\mathe\onedrive\햞ea de trabalho\merge_main_sprites\riverinf-mn\src\entities.h
+1764782765 c:\users\mathe\onedrive\햞ea de trabalho\merge_main_sprites\riverinf-mn\src\entities.h
 	"sprite.h"
 	"raylib.h"
 	"config.h"
 
-1763854876 c:\users\mathe\onedrive\햞ea de trabalho\merge_main_sprites\riverinf-mn\src\sprite.h
+1764021953 c:\users\mathe\onedrive\햞ea de trabalho\merge_main_sprites\riverinf-mn\src\sprite.h
 	"raylib.h"
 	"config.h"
 
-1763854936 source:c:\users\mathe\onedrive\햞ea de trabalho\merge_main_sprites\riverinf-mn\src\entities.c
+1764783218 source:c:\users\mathe\onedrive\햞ea de trabalho\merge_main_sprites\riverinf-mn\src\entities.c
 	"raylib.h"
 	"entities.h"
 	"sprite.h"
@@ -110,15 +110,15 @@
 1763848907 c:\users\mathe\onedrive\햞ea de trabalho\merge_main_sprites\riverinf-mn\src\map.h
 	"config.h"
 
-1763848907 c:\users\mathe\onedrive\햞ea de trabalho\merge_main_sprites\riverinf-mn\src\game.h
+1764286788 c:\users\mathe\onedrive\햞ea de trabalho\merge_main_sprites\riverinf-mn\src\game.h
 	"config.h"
 
-1763848907 source:c:\users\mathe\onedrive\햞ea de trabalho\merge_main_sprites\riverinf-mn\src\map.c
+1764618381 source:c:\users\mathe\onedrive\햞ea de trabalho\merge_main_sprites\riverinf-mn\src\map.c
 	"map.h"
 	"raylib.h"
 	<stdio.h>
 
-1763856658 source:c:\users\mathe\onedrive\햞ea de trabalho\merge_main_sprites\riverinf-mn\src\player.c
+1764781496 source:c:\users\mathe\onedrive\햞ea de trabalho\merge_main_sprites\riverinf-mn\src\player.c
 	"raylib.h"
 	"player.h"
 	"config.h"
@@ -129,7 +129,7 @@
 	<stdio.h>
 	<stdbool.h>
 
-1763855054 c:\users\mathe\onedrive\햞ea de trabalho\merge_main_sprites\riverinf-mn\src\player.h
+1764004112 c:\users\mathe\onedrive\햞ea de trabalho\merge_main_sprites\riverinf-mn\src\player.h
 	"sprite.h"
 	"raylib.h"
 	"config.h"
@@ -137,7 +137,7 @@
 
 1763848907 source:c:\users\mathe\onedrive\햞ea de trabalho\merge_main_sprites\riverinf-mn\src\scoring.c
 
-1763856784 source:c:\users\mathe\onedrive\햞ea de trabalho\merge_main_sprites\riverinf-mn\src\main.c
+1764779042 source:c:\users\mathe\onedrive\햞ea de trabalho\merge_main_sprites\riverinf-mn\src\main.c
 	"map.h"
 	"config.h"
 	"player.h"
@@ -158,7 +158,7 @@
 	"raylib.h"
 	"hud.h"
 
-1763856057 source:c:\users\mathe\onedrive\햞ea de trabalho\merge_main_sprites\riverinf-mn\src\sprites.c
+1764362613 source:c:\users\mathe\onedrive\햞ea de trabalho\merge_main_sprites\riverinf-mn\src\sprites.c
 	"raylib.h"
 	"sprite.h"
 	<stdlib.h>

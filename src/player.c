@@ -20,7 +20,9 @@ void initPlayer(PLAYER* player, char map[MAP_HEIGHT][MAP_WIDTH]){
 
 bool updatePlayer(PLAYER* player, char map[MAP_HEIGHT][MAP_WIDTH]){
     bool reachedTop = false;
-    bool horizontal_movement;
+    bool horizontal_movement = false;
+
+    float scaled_tile_size = TILE_SIZE;
 
     if(IsKeyDown(KEY_A) || IsKeyDown(KEY_LEFT)){
         player->position.x -= PLAYER_SPEED;
@@ -40,17 +42,17 @@ bool updatePlayer(PLAYER* player, char map[MAP_HEIGHT][MAP_WIDTH]){
 
     player->position.y -= PLAYER_SPEED;
 
-    int topLeftRow = player->position.y / TILE_SIZE;
-    int topLeftCol = player->position.x / TILE_SIZE;
+    int topLeftRow = player->position.y / scaled_tile_size;
+    int topLeftCol = player->position.x / scaled_tile_size;
 
-    int topRightRow = player->position.y / TILE_SIZE;
-    int topRightCol = (player->position.x + PLAYER_WIDTH) / TILE_SIZE;
+    int topRightRow = player->position.y / scaled_tile_size;
+    int topRightCol = (player->position.x + PLAYER_WIDTH) / scaled_tile_size;
 
-    int bottomLeftRow = (player->position.y + PLAYER_HEIGHT) / TILE_SIZE;
-    int bottomLeftCol = player->position.x / TILE_SIZE;
+    int bottomLeftRow = (player->position.y + PLAYER_HEIGHT) / scaled_tile_size;
+    int bottomLeftCol = player->position.x / scaled_tile_size;
 
-    int bottomRightRow = (player->position.y  + PLAYER_HEIGHT) / TILE_SIZE;
-    int bottomRightCol = (player->position.x + PLAYER_WIDTH) / TILE_SIZE;
+    int bottomRightRow = (player->position.y  + PLAYER_HEIGHT) / scaled_tile_size;
+    int bottomRightCol = (player->position.x + PLAYER_WIDTH) / scaled_tile_size;
 
     if(
        map[topLeftRow][topLeftCol] == 'T' ||
@@ -86,9 +88,8 @@ bool updatePlayer(PLAYER* player, char map[MAP_HEIGHT][MAP_WIDTH]){
         reachedTop = true;
     return reachedTop;
 }
-
 void drawPlayer(PLAYER player,SpriteSheet*sheet){
-    drawing_sprite(sheet,player.currentSprite,player.position.x,player.position.y);
+    drawing_sprite(sheet,player.currentSprite,player.position.x,player.position.y,JET_SCALE);
 }
 
 void resetPlayerPosition(PLAYER* player, char map[MAP_HEIGHT][MAP_WIDTH]){
@@ -102,5 +103,5 @@ void resetPlayerPosition(PLAYER* player, char map[MAP_HEIGHT][MAP_WIDTH]){
                 return;
             }
         }
-    };
+    }
 }

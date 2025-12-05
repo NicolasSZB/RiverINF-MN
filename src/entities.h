@@ -8,13 +8,15 @@ typedef enum{
     ENTITY_NONE,
     ENTITY_SHIP,
     ENTITY_HELI,
-    ENTITY_FUEL
+    ENTITY_FUEL,
+    ENTITY_EXPLOSION //adicao
 } ENTITYTYPE;
 
 typedef struct {
     Vector2 position;
     ENTITYTYPE type;
     bool active;
+    float timer;
 } ENTITY;
 
 void initEntities(void);

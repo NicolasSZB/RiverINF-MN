@@ -13,7 +13,7 @@ SpriteSheet Carregarsprites(void){
 
 //PLAYER & BULLET
 
-    sheet.jogador_aviao_reto = (Rectangle){101.0f,68.0f,57,57};
+    sheet.jogador_aviao_reto = (Rectangle){101.0f,68.0f,57,57};//57,57
     sheet.jogador_aviao_direita = (Rectangle){169.0f,71.0f,42,58};
 
     sheet.jogador_aviao_esquerda= (Rectangle){49.0f,74.0f,42,56};
@@ -25,7 +25,7 @@ SpriteSheet Carregarsprites(void){
 
     sheet.helicoptero = (Rectangle){10.0f,184.0f,64,41};
     sheet.jato_inimigo = (Rectangle){159.0f,197.0f,65,25};
-    sheet.lancha = (Rectangle){15.0f,234.0f,128,32};
+    sheet.lancha = (Rectangle){10.0f,231.0f,39,19};
 
 // EFFECTS
     sheet.fuel =(Rectangle){611.0f,61.0f,56,96};
@@ -38,7 +38,7 @@ SpriteSheet Carregarsprites(void){
 
     sheet.campo_verde =(Rectangle) {335.0f,62.0f,126,95};
 
-    sheet.hipotenusa_esquerda =(Rectangle) {335.0f,25.0f,127,32};
+    sheet.hipotenusa_esquerda =(Rectangle){335.0f,25.0f,127,32};
 
     sheet.hipotenusa_esquerda_invertida = (Rectangle){334.0f,162.0f,128,32};
 
@@ -69,19 +69,17 @@ SpriteSheet Carregarsprites(void){
     return sheet;
 }
 
-void drawing_sprite(SpriteSheet *sprite,Rectangle sprite_corte,float x,float y){
+void drawing_sprite(SpriteSheet *sprite,Rectangle sprite_corte,float x,float y,float escala){
    const float rotacao = 0.0f;
 
-   Rectangle sprite_cortado = sprite_corte;
-
-   float largura_final = sprite_cortado.width*GAME_SCALE;
-   float altura_final = sprite_cortado.height*GAME_SCALE;
+   float largura_final = sprite_corte.width*escala;
+   float altura_final = sprite_corte.height*escala;
 
    Rectangle destino={x,y,largura_final,altura_final};
 
    Vector2 origem = {0.0f,0.0f};
 
-   DrawTexturePro(sprite->arquivo,sprite_cortado,destino,origem,rotacao,WHITE);
+   DrawTexturePro(sprite->arquivo,sprite_corte,destino,origem,rotacao,WHITE);
 
 }
 

@@ -55,7 +55,7 @@ extern SpriteSheet gameSprites;
 //PROTOTIPO FUNCOES
 
 SpriteSheet Carregarsprites(void);
-void drawing_sprite(SpriteSheet *sheet, Rectangle sprite, float x,float y);
+void drawing_sprite(SpriteSheet *sheet, Rectangle sprite, float x,float y,float escala);
 void unload_sprite(SpriteSheet *sheet);
 
 #endif // SPRITES_H
