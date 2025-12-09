@@ -3,6 +3,11 @@
 #include "config.h"
 #include "entities.h"
 #include "bullet.h"
+<<<<<<< Updated upstream
+=======
+#include "sprite.h"
+#include "audio.h"
+>>>>>>> Stashed changes
 
 #include <stdlib.h>
 #include <stdio.h>
@@ -22,8 +27,20 @@ bool updatePlayer(PLAYER* player, char map[MAP_HEIGHT][MAP_WIDTH]){
         player->position.x -= PLAYER_SPEED;
     if(IsKeyDown(KEY_D) || IsKeyDown(KEY_RIGHT))
         player->position.x += PLAYER_SPEED;
+<<<<<<< Updated upstream
     if(IsKeyPressed(KEY_K) || IsKeyPressed(KEY_SPACE))
+=======
+        player->currentSprite = gameSprites.jogador_aviao_direita;
+        horizontal_movement = true;
+    }
+    if(!horizontal_movement){
+        player->currentSprite = gameSprites.jogador_aviao_reto;
+    }
+    if(IsKeyPressed(KEY_K) || IsKeyPressed(KEY_SPACE)){
+>>>>>>> Stashed changes
         spawnBullet(player->position);
+        playShootSound();
+    }
 
     player->position.y -= PLAYER_SPEED;
 
@@ -45,17 +62,20 @@ bool updatePlayer(PLAYER* player, char map[MAP_HEIGHT][MAP_WIDTH]){
        map[bottomLeftRow][bottomLeftCol] == 'T' ||
        map[bottomRightRow][bottomRightCol] == 'T'
        ){
+        playExplosionSound();
         player->life--;
         resetPlayerPosition(player, map);
        }
 
     ENTITYTYPE collisionType = checkPlayerCollision(player->position);
 
-    if(collisionType == ENTITY_HELI || collisionType == ENTITY_SHIP){
+    if(collisionType == ENTITY_HELI || collisionType == ENTITY_SHIP || collisionType == ENTITY_BRIDGE){
+        playExplosionSound();
         player->life--;
         resetPlayerPosition(player, map);
     }
     else if(collisionType == ENTITY_FUEL){
+        playFuelSound();
         player->fuel += 30;
         if(player-> fuel > 100)
             player->fuel = 100;

@@ -1,6 +1,7 @@
 #include "bullet.h"
 #include "config.h"
 #include "entities.h"
+#include "audio.h"
 
 static BULLET bullets[MAX_BULLETS];
 
@@ -22,7 +23,7 @@ void spawnBullet(Vector2 startPosition){
     }
 }
 
-int updateBullets(void){
+int updateBullets(char map[MAP_HEIGHT][MAP_WIDTH]){
     int scoreFrame = 0;
 
     for(int i = 0; i < MAX_BULLETS; i++){
@@ -36,11 +37,22 @@ int updateBullets(void){
             continue;
         }
 
+        int gridCol = (bullets[i].position.x + 2) / TILE_SIZE;
+        int gridRow = bullets[i].position.y / TILE_SIZE;
+
+        if(gridCol >= 0 && gridCol < MAP_WIDTH && gridRow >= 0 && gridRow < MAP_HEIGHT){
+            if(map[gridRow][gridCol] == 'T'){
+                bullets[i].active = false;
+                continue;
+            }
+        }
+
         int score = checkBulletCollision(bullets[i].position);
 
         if(score > 0){
             bullets[i].active = false;
             scoreFrame += score;
+            playExplosionSound();
         }
     }
 

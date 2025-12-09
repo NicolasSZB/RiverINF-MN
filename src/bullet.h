@@ -2,6 +2,8 @@
 #define BULLET_H_
 
 #include "raylib.h"
+#include "config.h"
+#include "audio.h"
 #include <stdbool.h>
 
 typedef struct {
@@ -15,7 +17,7 @@ void initBullets(void);
 
 void spawnBullet(Vector2 startPosition);
 
-int updateBullets(void);
+int updateBullets(char map[MAP_HEIGHT][MAP_WIDTH]);
 
 void drawBullets(void);
 
