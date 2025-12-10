@@ -74,6 +74,11 @@
 	"raylib.h"
 	"hud.h"
 
+<<<<<<< HEAD
+=======
+<<<<<<< Updated upstream
+=======
+>>>>>>> 38adb048f742436ec7ad35800588e0e31bbeedd5
 1763848907 source:c:\users\mathe\onedrive\Área de trabalho\merge_main_sprites\riverinf-mn\src\bullet.c
 	"bullet.h"
 	"config.h"
@@ -164,3 +169,116 @@
 	<stdlib.h>
 	<stdio.h>
 
+<<<<<<< HEAD
+=======
+1765304666 source:c:\users\nicol\onedrive\documents\riverinf-mn\src\bullet.c
+	"bullet.h"
+	"config.h"
+	"entities.h"
+	"audio.h"
+
+1765304537 c:\users\nicol\onedrive\documents\riverinf-mn\src\bullet.h
+	"raylib.h"
+	"config.h"
+	"audio.h"
+	<stdbool.h>
+
+1764961911 c:\users\nicol\onedrive\documents\riverinf-mn\src\config.h
+
+1765313312 c:\users\nicol\onedrive\documents\riverinf-mn\src\entities.h
+	"sprite.h"
+	"raylib.h"
+	"config.h"
+
+1764021953 c:\users\nicol\onedrive\documents\riverinf-mn\src\sprite.h
+	"raylib.h"
+	"config.h"
+
+1765313921 source:c:\users\nicol\onedrive\documents\riverinf-mn\src\entities.c
+	"raylib.h"
+	"entities.h"
+	"sprite.h"
+	<stdlib.h>
+
+1763848907 source:c:\users\nicol\onedrive\documents\riverinf-mn\src\game.c
+	<stdio.h>
+	"config.h"
+	"map.h"
+	"game.h"
+	"entities.h"
+
+1763848907 c:\users\nicol\onedrive\documents\riverinf-mn\src\map.h
+	"config.h"
+
+1765058560 c:\users\nicol\onedrive\documents\riverinf-mn\src\game.h
+	"config.h"
+
+1763848907 source:c:\users\nicol\onedrive\documents\riverinf-mn\src\hud.c
+	"raylib.h"
+	"hud.h"
+
+1763848907 c:\users\nicol\onedrive\documents\riverinf-mn\src\hud.h
+	"player.h"
+
+1764004112 c:\users\nicol\onedrive\documents\riverinf-mn\src\player.h
+	"sprite.h"
+	"raylib.h"
+	"config.h"
+	<stdbool.h>
+
+1765318695 source:c:\users\nicol\onedrive\documents\riverinf-mn\src\main.c
+	"map.h"
+	"config.h"
+	"player.h"
+	"raylib.h"
+	"entities.h"
+	"game.h"
+	"bullet.h"
+	"hud.h"
+	"sprite.h"
+	"scoring.h"
+	"audio.h"
+	<stdlib.h>
+	<stdio.h>
+	<stdbool.h>
+
+1764961911 source:c:\users\nicol\onedrive\documents\riverinf-mn\src\map.c
+	"map.h"
+	"raylib.h"
+	<stdio.h>
+
+1765301379 source:c:\users\nicol\onedrive\documents\riverinf-mn\src\player.c
+	"raylib.h"
+	"player.h"
+	"config.h"
+	"entities.h"
+	"bullet.h"
+	"sprite.h"
+	"audio.h"
+	<stdlib.h>
+	<stdio.h>
+	<stdbool.h>
+
+1765266352 source:c:\users\nicol\onedrive\documents\riverinf-mn\src\scoring.c
+	<stdio.h>
+	<string.h>
+	"scoring.h"
+
+1764961911 source:c:\users\nicol\onedrive\documents\riverinf-mn\src\sprites.c
+	"raylib.h"
+	"sprite.h"
+	<stdlib.h>
+	<stdio.h>
+
+1765266377 c:\users\nicol\onedrive\documents\riverinf-mn\src\scoring.h
+	<stdbool.h>
+
+1765299008 c:\users\nicol\onedrive\documents\riverinf-mn\src\audio.h
+	"raylib.h"
+
+1765318528 source:c:\users\nicol\onedrive\documents\riverinf-mn\src\audio.c
+	"audio.h"
+	<stdio.h>
+
+>>>>>>> Stashed changes
+>>>>>>> 38adb048f742436ec7ad35800588e0e31bbeedd5

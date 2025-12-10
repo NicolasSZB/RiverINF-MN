@@ -31,11 +31,25 @@
 		<Compiler>
 			<Add option="-Wall" />
 		</Compiler>
+<<<<<<< HEAD
+=======
+<<<<<<< Updated upstream
+		<Unit filename="levels/first.txt" />
+=======
+>>>>>>> 38adb048f742436ec7ad35800588e0e31bbeedd5
 		<Unit filename="../../sprites.png" />
 		<Unit filename="levels/fase 4.txt" />
 		<Unit filename="levels/fase1.txt" />
 		<Unit filename="levels/fase2.txt" />
 		<Unit filename="levels/fase3.txt" />
+<<<<<<< HEAD
+=======
+		<Unit filename="src/audio.c">
+			<Option compilerVar="CC" />
+		</Unit>
+		<Unit filename="src/audio.h" />
+>>>>>>> Stashed changes
+>>>>>>> 38adb048f742436ec7ad35800588e0e31bbeedd5
 		<Unit filename="src/bullet.c">
 			<Option compilerVar="CC" />
 		</Unit>
